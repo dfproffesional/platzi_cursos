@@ -63,6 +63,7 @@ Para Eliminarlo
 ``kill -9 (PID obtenido)``
 ### Exponiendo Contenedores
 Los contenedores de Docker, no poseen la posibilidad de hacer cosas por ellos mismos. Si deseas utilizarlo como usuario debes indicarle a que porciones del equipo anfitrion tienen acceso ya sean carpetas o sean puertos.
+
 **Ejemplos:**
 ``docker run --name example_web -p 8080:80 -d nginx:alpine``
 Exponemos el puerto 8080 de nuestra maquina
