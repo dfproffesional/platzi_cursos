@@ -32,6 +32,7 @@ Ejemplo: docker [OPTIONS] COMMAND
 |rm| Elimina un contenedor
 |docker container prune | Borrar todos los containers apagados.|
 |exec| Ejecutar un comando en un contenedor en ejecucion.|
+|logs| Ver los outputs de ejecucion del contenedor |
 
 
 ### Modo Interactivo
@@ -59,3 +60,21 @@ Para inspeccionar que proceso especifico esta ejecutando este contenedor se pued
 Para Eliminarlo
 ``kill -9 (PID obtenido)``
 ### Exponiendo Contenedores
+Los contenedores de Docker, no poseen la posibilidad de hacer cosas por ellos mismos. Si deseas utilizarlo como usuario debes indicarle a que porciones del equipo anfitrion tienen acceso ya sean carpetas o sean puertos.
+**Ejemplos:**
+``docker run --name example_web -p 8080:80 -d nginx:alpine``
+Exponemos el puerto 8080 de nuestra maquina
+![Image Alpine Nginx](.src/capture_dk_nginx.PNG)
+
+``docker ps``
+![Image Alpine Nginx Ps](.src/capture_dk_ps_nginx.PNG)
+
+``docker logs example_web``
+Para hacer debbugs o test de las peticiones de nginx
+![Image Alpine Nginx](.src/capture_dk_nginx_logs.PNG)
+
+**Resultados**
+![Image Alpine Nginx Web](.src/capture_dk_nginx_brows.PNG)
+
+### Compartiendo archivos 
+Para compartir archivos con los contenedores en la actualidad en docker se emplean volumenes. Los volumenes son unidades logicas creadas y administradas por docker, y ellas se utilizan para montar dentro del sistema de archivos del contenedor las rutas del equipo anfitrion que se deseen compartir.
