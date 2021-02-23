@@ -50,8 +50,10 @@ La explicacion por la cual un contenedor se detiene luego de acceder usando un i
 Para evitar esto debemos proporcionar un comando diferente para que se mantenga en ejecucion.
 Ejemplo:
 ``docker run --name example2 -d alpine tail -f /dev/null``
+
 ![Image Alpine 2](.src/capture_dk_alpine_2.PNG)
 ![Image Alpine ps](.src/capture_dk_alpine_ps.PNG)
+
 Para inspeccionar que proceso especifico esta ejecutando este contenedor se puede usar lo siguiente:
 ``docker inspect --format '{{.State.Pid}}' example2``
 Para Eliminarlo
