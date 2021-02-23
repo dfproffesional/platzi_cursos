@@ -49,14 +49,16 @@ Como puedes observar se libera el comand prompt del contendor, pero al salir nue
 #### Ciclo de Vida de un Contenedor
 La explicacion por la cual un contenedor se detiene luego de acceder usando un interprete es porque su main process ```/bin/bash``` ya se ejecuto pero sin ninguna otra entrada por lo que inicio y termino.
 Para evitar esto debemos proporcionar un comando diferente para que se mantenga en ejecucion.
-Ejemplo:
-``docker run --name example2 -d alpine tail -f /dev/null``
+
+Ejemplo: ``docker run --name example2 -d alpine tail -f /dev/null``
 
 ![Image Alpine 2](.src/capture_dk_alpine_2.PNG)
 ![Image Alpine ps](.src/capture_dk_alpine_ps.PNG)
 
 Para inspeccionar que proceso especifico esta ejecutando este contenedor se puede usar lo siguiente:
+
 ``docker inspect --format '{{.State.Pid}}' example2``
+
 Para Eliminarlo
 ``kill -9 (PID obtenido)``
 ### Exponiendo Contenedores
@@ -74,6 +76,7 @@ Para hacer debbugs o test de las peticiones de nginx
 ![Image Alpine Nginx](.src/capture_dk_nginx_logs.PNG)
 
 **Resultados**
+
 ![Image Alpine Nginx Web](.src/capture_dk_nginx_brows.PNG)
 
 ### Compartiendo archivos 
